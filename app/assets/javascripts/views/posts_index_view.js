@@ -3,7 +3,7 @@ Journal.Views.PostIndexView = Backbone.View.extend({
 
   initialize: function () {
     this.$el = $("<content></content>");
-    this.listenTo(this.collection, "add remove reset change", this.render)
+    this.listenTo(this.collection, "add remove reset change route", this.render)
   },
 
   events: {

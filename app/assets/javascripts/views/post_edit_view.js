@@ -26,14 +26,16 @@ Journal.Views.PostEditView = Backbone.View.extend({
       post = Journal.posts.get(id);
       post.save(formData, {
         wait: true,
-        success: function () { Backbone.history.navigate("", { trigger: true }) },
+        success: function () { Backbone.history.navigate("#/posts/" + id, { trigger: true }) },
         error: function (model, response) { that.$el.prepend($("<h3>" + response.responseText + "</h3>" )) }
       });
     } else {
       post = new Journal.Models.Post(formData)
       Journal.posts.create(post, {
         wait: true,
-        success: function () { Backbone.history.navigate("", { trigger: true }) },
+        success: function (resp) {
+          Backbone.history.navigate("#/posts/" + resp.id, { trigger: true });
+        },
         error: function (model, response) { that.$el.prepend($("<h3>" + response.responseText + "</h3>" )) }
       });
     }

@@ -14,7 +14,13 @@ Journal.Routers.PostsRouter = Backbone.Router.extend({
   index: function () {
     var view = new Journal.Views.PostIndexView({ collection: Journal.posts })
     this.$rootEl.find('#index').html(view.render().$el);
-    this.new();
+    this.fillContent();
+  },
+
+  fillContent: function () {
+    if ($("#content").html() == false) {
+      this.new();
+    }
   },
 
   show: function (id) {
@@ -35,7 +41,6 @@ Journal.Routers.PostsRouter = Backbone.Router.extend({
     var view = new Journal.Views.PostEditView({model: post});
 
     this.$rootEl.find('#content').html(view.render().$el);
-
   }
 
 });
