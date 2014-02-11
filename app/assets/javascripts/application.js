@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
+//= require jquery.serializeJSON
 //= require backbone
 //= require journal
 //= require_tree ../templates

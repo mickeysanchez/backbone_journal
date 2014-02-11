@@ -1,0 +1,19 @@
+<h2>Journal Entries :)</h2>
+
+<ul>
+  <% _.each(posts, function (post) { %>
+    <li>
+      <a href="#/posts/<%= post.escape('id') %>">
+        <%= post.escape('title') %>
+      </a>
+
+      <button class="delete-post" data-id="<%= post.escape('id') %>">
+        delete
+      </button>
+
+      <a href="#/posts/<%= post.escape('id') %>/edit">Edit this post</a>
+    </li>
+  <% }); %>
+</ul>
+
+<a href="#/posts/new">Add a post!</a>
